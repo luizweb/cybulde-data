@@ -1045,42 +1045,34 @@ pgp = ["gpg"]
 
 [[package]]
 name = "dvc"
-version = "3.50.0"
+version = "2.58.2"
 description = "Git for data scientists - manage your code and data together"
 optional = false
-python-versions = ">=3.9"
+python-versions = ">=3.8"
 files = [
-    {file = "dvc-3.50.0-py3-none-any.whl", hash = "sha256:298316ff35a87d8ca41c7e37337048a325145b9e11dbe36d2f89a7f68480de3f"},
-    {file = "dvc-3.50.0.tar.gz", hash = "sha256:59106be452a74843e3618a92f80d9593f8e2b73892591f5ccafa6c6ac82cad1c"},
+    {file = "dvc-2.58.2-py3-none-any.whl", hash = "sha256:3a935615812fd57c341e8b58a7f4de57d9d4a067500376041c3f1c805ee24345"},
+    {file = "dvc-2.58.2.tar.gz", hash = "sha256:d40fff99b76719d1d524f103ad9dc64141bb363492abb9b8a61c6e70efe5a4dc"},
 ]
 
 [package.dependencies]
-attrs = ">=22.2.0"
-celery = "*"
 colorama = ">=0.3.9"
 configobj = ">=5.0.6"
 distro = ">=1.3"
 dpath = ">=2.1.0,<3"
-dulwich = "*"
-dvc-data = ">=3.15,<3.16"
-dvc-gdrive = {version = ">=3,<4", optional = true, markers = "extra == \"gdrive\""}
-dvc-gs = {version = ">=3,<4", optional = true, markers = "extra == \"gs\""}
+dvc-data = ">=0.51.0,<0.52"
+dvc-gdrive = {version = "2.19.2", optional = true, markers = "extra == \"gdrive\""}
+dvc-gs = {version = "2.22.0", optional = true, markers = "extra == \"gs\""}
 dvc-http = ">=2.29.0"
-dvc-objects = "*"
-dvc-render = ">=1.0.1,<2"
-dvc-studio-client = ">=0.20,<1"
-dvc-task = ">=0.3.0,<1"
+dvc-render = ">=0.3.1,<1"
+dvc-studio-client = ">=0.9.2,<1"
+dvc-task = ">=0.2.1,<1"
 flatten-dict = ">=0.4.1,<1"
-"flufl.lock" = ">=5,<8"
-fsspec = "*"
+"flufl.lock" = ">=5"
 funcy = ">=1.14"
 grandalf = ">=0.7,<1"
-gto = ">=1.6.0,<2"
 hydra-core = ">=1.1"
 iterative-telemetry = ">=0.0.7"
-kombu = "*"
 networkx = ">=2.5"
-omegaconf = "*"
 packaging = ">=19"
 pathspec = ">=0.10.3"
 platformdirs = ">=3.1.1,<4"
@@ -1091,7 +1083,7 @@ pyparsing = ">=2.4.7"
 requests = ">=2.22"
 rich = ">=12"
 "ruamel.yaml" = ">=0.17.11"
-scmrepo = ">=3,<4"
+scmrepo = ">=1.0.0,<2"
 shortuuid = ">=0.5"
 shtab = ">=1.3.4,<2"
 tabulate = ">=0.8.7"
@@ -1102,77 +1094,78 @@ voluptuous = ">=0.11.7"
 
 [package.extras]
 all = ["dvc[azure,gdrive,gs,hdfs,oss,s3,ssh,webdav,webhdfs]"]
-azure = ["dvc-azure (>=3.1.0,<4)"]
-dev = ["dvc[azure,gdrive,gs,hdfs,lint,oss,s3,ssh,tests,webdav,webhdfs]"]
-gdrive = ["dvc-gdrive (>=3,<4)"]
-gs = ["dvc-gs (>=3,<4)"]
-hdfs = ["dvc-hdfs (>=3,<4)"]
-lint = ["mypy (==1.9.0)", "pandas-stubs", "types-colorama", "types-psutil", "types-pyinstaller", "types-requests", "types-tabulate", "types-toml", "types-tqdm", "typing-extensions"]
-oss = ["dvc-oss (>=3,<4)"]
-s3 = ["dvc-s3 (>=3,<4)"]
-ssh = ["dvc-ssh (>=4,<5)"]
-ssh-gssapi = ["dvc-ssh[gssapi] (>=4,<5)"]
-testing = ["pytest-benchmark[histogram]", "pytest-test-utils", "virtualenv"]
-tests = ["beautifulsoup4 (>=4.4)", "dvc-ssh", "dvc[testing]", "filelock", "pandas (>=1)", "pytest (>=7,<9)", "pytest-cov (>=4.1.0)", "pytest-docker (>=1,<4)", "pytest-mock", "pytest-rerunfailures", "pytest-test-utils", "pytest-timeout (>=2)", "pytest-xdist (>=3.2)", "pywin32 (>=225)", "sqlalchemy (>=1,<3)", "tzdata"]
-webdav = ["dvc-webdav (>=3,<4)"]
-webhdfs = ["dvc-webhdfs (>=3.1,<4)"]
-webhdfs-kerberos = ["dvc-webhdfs[kerberos] (>=3.1,<4)"]
+azure = ["dvc-azure (>=2.21.2)"]
+dev = ["dvc[azure,gdrive,gs,hdfs,lint,oss,s3,ssh,terraform,tests,webdav,webhdfs]"]
+gdrive = ["dvc-gdrive (==2.19.2)"]
+gs = ["dvc-gs (==2.22.0)"]
+hdfs = ["dvc-hdfs (==2.19)"]
+lint = ["mypy (==1.3.0)", "pylint (==2.17.4)", "types-colorama", "types-psutil", "types-requests", "types-tabulate", "types-toml", "types-tqdm"]
+oss = ["dvc-oss (==2.19)"]
+s3 = ["dvc-s3 (==2.22.0)"]
+ssh = ["dvc-ssh (>=2.22.1,<3)"]
+ssh-gssapi = ["dvc-ssh[gssapi] (>=2.22.1,<3)"]
+terraform = ["tpi[ssh] (>=2.1)"]
+testing = ["pytest-benchmark[histogram]", "pytest-test-utils", "pytest-virtualenv"]
+tests = ["beautifulsoup4 (>=4.4)", "dvc-ssh", "dvc[testing]", "filelock", "flaky", "pytest (>=7,<8)", "pytest-cov", "pytest-docker (>=1,<2)", "pytest-lazy-fixture", "pytest-mock", "pytest-test-utils", "pytest-timeout (>=2)", "pytest-xdist (>=3.2)", "pywin32 (>=225)"]
+webdav = ["dvc-webdav (==2.19.1)"]
+webhdfs = ["dvc-webhdfs (==2.19)"]
+webhdfs-kerberos = ["dvc-webhdfs[kerberos] (==2.19)"]
 
 [[package]]
 name = "dvc-data"
-version = "3.15.1"
-description = "DVC's data management subsystem"
+version = "0.51.0"
+description = "dvc data"
 optional = false
-python-versions = ">=3.9"
+python-versions = ">=3.8"
 files = [
-    {file = "dvc-data-3.15.1.tar.gz", hash = "sha256:db141bbbcf9e1ff37d9ff8657d04747e804899b90b4931b120f5d21bbd401583"},
-    {file = "dvc_data-3.15.1-py3-none-any.whl", hash = "sha256:e869825af922add091bc3e2de477ba0d05e847db402bb4044483600161f3a7a7"},
+    {file = "dvc-data-0.51.0.tar.gz", hash = "sha256:32544bb7d3ae509f91c2d07a9dc3739dd87980be5b41582781efb4f246b58497"},
+    {file = "dvc_data-0.51.0-py3-none-any.whl", hash = "sha256:f3244f7d848f10fdb21d5ff485410f6955a1de828a149577633e3ed0f451ebd2"},
 ]
 
 [package.dependencies]
 attrs = ">=21.3.0"
 dictdiffer = ">=0.8.1"
 diskcache = ">=5.2.1"
-dvc-objects = ">=4.0.1,<6"
-fsspec = ">=2024.2.0"
-funcy = {version = ">=1.14", markers = "python_version < \"3.12\""}
+dvc-objects = ">=0.22.0,<1"
+funcy = ">=1.14"
+nanotime = ">=0.5.2"
 pygtrie = ">=2.3.2"
-sqltrie = ">=0.11.0,<1"
-tqdm = ">=4.63.1,<5"
+shortuuid = ">=0.5.0"
+sqltrie = ">=0.3.1,<1"
 
 [package.extras]
-all = ["dvc-data[cli]"]
+all = ["rich (>=10.11.0,<14.0.0)", "typer[all] (>=0.6)"]
 cli = ["rich (>=10.11.0,<14.0.0)", "typer[all] (>=0.6)"]
-dev = ["blake3 (>=0.3.1)", "dvc-data[all]", "dvc-data[tests]", "mypy (==1.9.0)", "types-tqdm"]
-tests = ["pytest (>=7,<9)", "pytest-benchmark (>=4)", "pytest-cov (>=4.1.0)", "pytest-mock", "pytest-servers[s3] (==0.5.0)", "pytest-sugar"]
+dev = ["blake3 (>=0.3.1)", "mypy (==0.971)", "pylint (==2.15.0)", "pytest (==7.2.0)", "pytest-benchmark (==4.0.0)", "pytest-cov (==4.0.0)", "pytest-mock (==3.10.0)", "pytest-servers[s3] (==0.1.3)", "pytest-sugar (==0.9.6)", "rich (>=10.11.0,<14.0.0)", "typer[all] (>=0.6)"]
+tests = ["mypy (==0.971)", "pylint (==2.15.0)", "pytest (==7.2.0)", "pytest-benchmark (==4.0.0)", "pytest-cov (==4.0.0)", "pytest-mock (==3.10.0)", "pytest-servers[s3] (==0.1.3)", "pytest-sugar (==0.9.6)"]
 
 [[package]]
 name = "dvc-gdrive"
-version = "3.0.1"
+version = "2.19.2"
 description = "gdrive plugin for dvc"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "dvc-gdrive-3.0.1.tar.gz", hash = "sha256:ad7c9cd044083745150a57649eb4ef9240348f054bed5a8f8aa5f1820c6384ec"},
-    {file = "dvc_gdrive-3.0.1-py3-none-any.whl", hash = "sha256:9ee784501aa5229d4c02f195e783836d0d466c7218cf57bddcfa0f827ba5766c"},
+    {file = "dvc-gdrive-2.19.2.tar.gz", hash = "sha256:e1467fdf4a22dbaa676cced1345a53cc5db4ca474f88a9e1e061682396f6322b"},
+    {file = "dvc_gdrive-2.19.2-py3-none-any.whl", hash = "sha256:b2d51fa98f231a93cdf396531d5a3b033e2f0e9788d4b0c4e81a72be083bd9b5"},
 ]
 
 [package.dependencies]
 dvc = "*"
-pydrive2 = {version = ">=1.19.0", extras = ["fsspec"]}
+pydrive2 = {version = ">=1.15.3", extras = ["fsspec"]}
 
 [package.extras]
-tests = ["Pygments (==2.10.0)", "collective.checkdocs (==0.2)", "dvc[testing]", "filelock (==3.3.2)", "flaky (==3.7.0)", "mock (==4.0.3)", "mypy (==0.981)", "pydocstyle (==6.1.1)", "pylint (==2.16.2)", "pylint-plugin-utils (==0.6)", "pylint-pytest (==1.1.2)", "pytest (==6.2.5)", "pytest-cov (==3.0.0)", "pytest-docker (>=1,<2)", "pytest-lazy-fixture (==0.6.3)", "pytest-mock (==3.6.1)", "pytest-xdist (==2.4.0)", "pywin32 (>=225)", "types-requests (==2.25.11)", "types-tabulate (==0.8.3)", "types-toml (==0.10.1)", "wget (==3.2)", "wheel (==0.37.0)", "xmltodict (==0.12.0)"]
+tests = ["Pygments (==2.10.0)", "collective.checkdocs (==0.2)", "dvc[testing]", "filelock (==3.3.2)", "flaky (==3.7.0)", "mock (==4.0.3)", "mypy (==0.981)", "pydocstyle (==6.1.1)", "pylint (==2.16.2)", "pylint-plugin-utils (==0.6)", "pylint-pytest (==1.1.2)", "pytest (==6.2.5)", "pytest-cov (==3.0.0)", "pytest-docker (==0.10.3)", "pytest-lazy-fixture (==0.6.3)", "pytest-mock (==3.6.1)", "pytest-xdist (==2.4.0)", "pywin32 (>=225)", "types-requests (==2.25.11)", "types-tabulate (==0.8.3)", "types-toml (==0.10.1)", "wget (==3.2)", "wheel (==0.37.0)", "xmltodict (==0.12.0)"]
 
 [[package]]
 name = "dvc-gs"
-version = "3.0.1"
+version = "2.22.0"
 description = "gs plugin for dvc"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "dvc-gs-3.0.1.tar.gz", hash = "sha256:e5430a297fb8182366f7c4bc910b1ab104d8e5cc22f611a19bce05165dffecd4"},
-    {file = "dvc_gs-3.0.1-py3-none-any.whl", hash = "sha256:e5d834760f6ac384bbc557c65ba027be298df7af4796eaf84b66b2df3bc64233"},
+    {file = "dvc-gs-2.22.0.tar.gz", hash = "sha256:533616da253f1af2c9778aba12b70b411a007a1c851773eb3138dbf0f12d98d1"},
+    {file = "dvc_gs-2.22.0-py3-none-any.whl", hash = "sha256:aac9f3390558518d801f43dd1e2be042c573cbb4963fb25a58099e3805dc8e71"},
 ]
 
 [package.dependencies]
@@ -1180,7 +1173,7 @@ dvc = "*"
 gcsfs = ">=2022.11.0"
 
 [package.extras]
-tests = ["Pygments (==2.10.0)", "collective.checkdocs (==0.2)", "dvc[testing]", "filelock (==3.3.2)", "flaky (==3.7.0)", "google-cloud-storage (>=2.7.0)", "mock (==4.0.3)", "mypy (==0.931)", "pydocstyle (==6.1.1)", "pylint (==2.15.9)", "pylint-plugin-utils (==0.6)", "pytest (==7.1.2)", "pytest-cov (==3.0.0)", "pytest-lazy-fixture (==0.6.3)", "pytest-mock (==3.6.1)", "pytest-servers[gcs] (>=0.3.0)", "pytest-xdist (==2.4.0)", "pywin32 (>=225)", "types-requests (==2.25.11)", "types-tabulate (==0.8.3)", "types-toml (==0.10.1)", "wget (==3.2)", "wheel (==0.37.0)", "xmltodict (==0.12.0)"]
+tests = ["Pygments (==2.10.0)", "collective.checkdocs (==0.2)", "dvc[testing]", "filelock (==3.3.2)", "flaky (==3.7.0)", "google-cloud-storage (>=2.7.0)", "mock (==4.0.3)", "mypy (==0.931)", "pydocstyle (==6.1.1)", "pylint (==2.15.9)", "pylint-plugin-utils (==0.6)", "pytest (==7.1.2)", "pytest-cov (==3.0.0)", "pytest-lazy-fixture (==0.6.3)", "pytest-mock (==3.6.1)", "pytest-servers[gcs] (==0.2.0)", "pytest-xdist (==2.4.0)", "pywin32 (>=225)", "types-requests (==2.25.11)", "types-tabulate (==0.8.3)", "types-toml (==0.10.1)", "wget (==3.2)", "wheel (==0.37.0)", "xmltodict (==0.12.0)"]
 
 [[package]]
 name = "dvc-http"
@@ -1202,40 +1195,44 @@ tests = ["dvc[testing]", "flaky (==3.7.0)", "mypy (==0.910)", "pylint (==2.15.9)
 
 [[package]]
 name = "dvc-objects"
-version = "5.1.0"
-description = "dvc objects - filesystem and object-db level abstractions to use in dvc and dvc-data"
+version = "0.25.0"
+description = "dvc objects"
 optional = false
-python-versions = ">=3.9"
+python-versions = ">=3.8"
 files = [
-    {file = "dvc-objects-5.1.0.tar.gz", hash = "sha256:22e919620f9ecf428a0d295efca8073d1c0e87206dd8e1f52b1d9520fa25b814"},
-    {file = "dvc_objects-5.1.0-py3-none-any.whl", hash = "sha256:c29b28f372674f53eca13323832d7b61c14bc29d516c39f6e87c5eba871a00ba"},
+    {file = "dvc-objects-0.25.0.tar.gz", hash = "sha256:6e13add661ab7766cc26493102c7981b5164351f0ca4ee33d080d1651d4b5899"},
+    {file = "dvc_objects-0.25.0-py3-none-any.whl", hash = "sha256:09f318cbb376750f4d2ef0afcde4ae41ca3f3071d6192bfee676812acd1f6d1f"},
 ]
 
 [package.dependencies]
-fsspec = ">=2024.2.0"
-funcy = {version = ">=1.14", markers = "python_version < \"3.12\""}
+fsspec = ">=2022.10.0"
+funcy = ">=1.14"
+packaging = ">=19"
+shortuuid = ">=0.5.0"
+tqdm = ">=4.63.1,<5"
+typing-extensions = ">=3.7.4"
 
 [package.extras]
-dev = ["dvc-objects[tests]", "mypy (==1.8.0)"]
-tests = ["pytest (>=7,<8)", "pytest-asyncio (>=0.23.2,<1)", "pytest-benchmark", "pytest-cov (>=4.1.0)", "pytest-mock", "pytest-sugar", "reflink"]
+dev = ["mypy (==0.971)", "pylint (==2.15.0)", "pytest (==7.2.0)", "pytest-cov (==4.0.0)", "pytest-mock (==3.8.2)", "pytest-servers[s3] (==0.1.3)", "pytest-sugar (==0.9.6)"]
+tests = ["mypy (==0.971)", "pylint (==2.15.0)", "pytest (==7.2.0)", "pytest-cov (==4.0.0)", "pytest-mock (==3.8.2)", "pytest-servers[s3] (==0.1.3)", "pytest-sugar (==0.9.6)"]
 
 [[package]]
 name = "dvc-render"
-version = "1.0.2"
-description = "Dvc Render"
+version = "0.7.0"
+description = "DVC render"
 optional = false
-python-versions = ">=3.9"
+python-versions = ">=3.8"
 files = [
-    {file = "dvc-render-1.0.2.tar.gz", hash = "sha256:40d1cd81760daf34b48fa8362b5002fcbe415e3cdbcf42369b6347d01497ffc0"},
-    {file = "dvc_render-1.0.2-py3-none-any.whl", hash = "sha256:7e3e3cec1200fda41a99984190f14871f3cb878db7f94c853305056f69614ddb"},
+    {file = "dvc-render-0.7.0.tar.gz", hash = "sha256:8f0fc1a2924249152f2c5259af41821a1e9c9004d2197f3057e5f9f73d761d43"},
+    {file = "dvc_render-0.7.0-py3-none-any.whl", hash = "sha256:ee5c2475baf80a163fe6726796535a9aea7ea1389dad9936f3df9211c2f45ece"},
 ]
 
 [package.extras]
-dev = ["dvc-render[docs,tests]", "mypy (==1.9.0)"]
-docs = ["mkdocs (>=1.5.2,<2)", "mkdocs-gen-files (>=0.5.0,<1)", "mkdocs-material (>=9.3.1,<10)", "mkdocs-section-index (>=0.3.6,<1)", "mkdocstrings-python (>=1.6.3,<2)"]
-markdown = ["dvc-render[table]", "matplotlib"]
+dev = ["flatten-dict (>=0.4.1,<1)", "funcy (>=1.17)", "matplotlib", "mkdocs (==1.5.2)", "mkdocs-gen-files (==0.5.0)", "mkdocs-material (==9.3.1)", "mkdocs-section-index (==0.3.6)", "mkdocstrings-python (==1.6.3)", "mypy (==0.981)", "pylint (==2.15.0)", "pytest (==7.2.0)", "pytest-cov (==3.0.0)", "pytest-mock (==3.8.2)", "pytest-sugar (>=0.9.6,<1.0)", "pytest-test-utils (>=0.0.6)", "tabulate (>=0.8.7)"]
+docs = ["mkdocs (==1.5.2)", "mkdocs-gen-files (==0.5.0)", "mkdocs-material (==9.3.1)", "mkdocs-section-index (==0.3.6)", "mkdocstrings-python (==1.6.3)"]
+markdown = ["flatten-dict (>=0.4.1,<1)", "matplotlib", "tabulate (>=0.8.7)"]
 table = ["flatten-dict (>=0.4.1,<1)", "tabulate (>=0.8.7)"]
-tests = ["dvc-render[markdown,table]", "pytest (>=7,<9)", "pytest-cov (>=4.1.0)", "pytest-mock", "pytest-sugar"]
+tests = ["flatten-dict (>=0.4.1,<1)", "funcy (>=1.17)", "matplotlib", "mypy (==0.981)", "pylint (==2.15.0)", "pytest (==7.2.0)", "pytest-cov (==3.0.0)", "pytest-mock (==3.8.2)", "pytest-sugar (>=0.9.6,<1.0)", "pytest-test-utils (>=0.0.6)", "tabulate (>=0.8.7)"]
 
 [[package]]
 name = "dvc-studio-client"
@@ -1280,17 +1277,6 @@ shortuuid = ">=1.0.8"
 dev = ["celery-types", "celery-types (==0.15.0)", "dvc-task[docs,tests]", "mypy (==1.9.0)"]
 docs = ["mkdocs (>=1.5.2,<2)", "mkdocs-gen-files (>=0.5.0,<1)", "mkdocs-material (>=9.3.1,<10)", "mkdocs-section-index (>=0.3.6,<1)", "mkdocstrings-python (>=1.6.3,<2)"]
 tests = ["pytest (>=7,<9)", "pytest-celery", "pytest-cov (>=4.1.0)", "pytest-mock", "pytest-rerunfailures", "pytest-sugar", "pytest-test-utils (>=0.0.6)"]
-
-[[package]]
-name = "entrypoints"
-version = "0.4"
-description = "Discover and load entry points from installed packages."
-optional = false
-python-versions = ">=3.6"
-files = [
-    {file = "entrypoints-0.4-py3-none-any.whl", hash = "sha256:f174b5ff827504fd3cd97cc3f8649f3693f51538c7e4bdf3ef002c8429d42f9f"},
-    {file = "entrypoints-0.4.tar.gz", hash = "sha256:b706eddaa9218a19ebcd67b56818f05bb27589b1ca9e8d797b74affad4ccacd4"},
-]
 
 [[package]]
 name = "exceptiongroup"
@@ -1382,18 +1368,18 @@ six = ">=1.12,<2.0"
 
 [[package]]
 name = "flufl-lock"
-version = "7.1.1"
+version = "8.1.0"
 description = "NFS-safe file locking with timeouts for POSIX and Windows"
 optional = false
-python-versions = ">=3.7"
+python-versions = ">=3.8"
 files = [
-    {file = "flufl.lock-7.1.1-py3-none-any.whl", hash = "sha256:96d2c0448ba9fd8fc65d5d681ed7217c8e1625149c1c880bba50559bb680a615"},
-    {file = "flufl.lock-7.1.1.tar.gz", hash = "sha256:af14172b35bbc58687bd06b70d1693fd8d48cbf0ffde7e51a618c148ae24042d"},
+    {file = "flufl_lock-8.1.0-py3-none-any.whl", hash = "sha256:a01b2153d1b0cc170a26b1413037debbe94af6a1cd23164b3b2b229f766b164f"},
+    {file = "flufl_lock-8.1.0.tar.gz", hash = "sha256:d88302005692a63d98b60080158faf089be5ecae6969f706409da8276fdce7cb"},
 ]
 
 [package.dependencies]
-atpublic = ">=2.3"
-psutil = ">=5.9.0"
+atpublic = "*"
+psutil = "*"
 
 [[package]]
 name = "fqdn"
@@ -1505,7 +1491,6 @@ files = [
 
 [package.dependencies]
 aiohttp = {version = "<4.0.0a0 || >4.0.0a0,<4.0.0a1 || >4.0.0a1", optional = true, markers = "extra == \"http\""}
-tqdm = {version = "*", optional = true, markers = "extra == \"tqdm\""}
 
 [package.extras]
 abfs = ["adlfs"]
@@ -1991,31 +1976,6 @@ files = [
 googleapis-common-protos = ">=1.5.5"
 grpcio = ">=1.62.2"
 protobuf = ">=4.21.6"
-
-[[package]]
-name = "gto"
-version = "1.7.1"
-description = "Version and deploy your models following GitOps principles"
-optional = false
-python-versions = ">=3.9"
-files = [
-    {file = "gto-1.7.1-py3-none-any.whl", hash = "sha256:466c3e059aacc7eb3b7780a5f4b49e4a32001b059feb2b426d5b0737f7e71f72"},
-    {file = "gto-1.7.1.tar.gz", hash = "sha256:24100e735195c0d54539401f42804fc9042998276cdc4233f49f153fd38a7d75"},
-]
-
-[package.dependencies]
-entrypoints = "*"
-funcy = "*"
-pydantic = ">=1.9.0,<2.0.0 || >2.0.0,<3"
-rich = "*"
-"ruamel.yaml" = "*"
-scmrepo = ">=3,<4"
-semver = ">=2.13.0"
-tabulate = ">=0.8.10"
-typer = ">=0.4.1"
-
-[package.extras]
-tests = ["freezegun", "pylint (==3.1.0)", "pylint-plugin-utils", "pytest", "pytest-cov", "pytest-mock", "pytest-test-utils", "types-freezegun"]
 
 [[package]]
 name = "h11"
@@ -2878,6 +2838,16 @@ python-versions = ">=3.5"
 files = [
     {file = "mypy_extensions-1.0.0-py3-none-any.whl", hash = "sha256:4392f6c0eb8a5668a69e23d168ffa70f0be9ccfd32b5cc2d26a34ae5b844552d"},
     {file = "mypy_extensions-1.0.0.tar.gz", hash = "sha256:75dbf8955dc00442a438fc4d0666508a9a97b6bd41aa2f0ffe9d2f2725af0782"},
+]
+
+[[package]]
+name = "nanotime"
+version = "0.5.2"
+description = "nanotime python implementation"
+optional = false
+python-versions = "*"
+files = [
+    {file = "nanotime-0.5.2.tar.gz", hash = "sha256:c7cc231fc5f6db401b448d7ab51c96d0a4733f4b69fabe569a576f89ffdf966b"},
 ]
 
 [[package]]
@@ -4128,41 +4098,29 @@ files = [
 
 [[package]]
 name = "scmrepo"
-version = "3.3.2"
-description = "scmrepo"
+version = "1.4.1"
+description = "SCM wrapper and fsspec filesystem for Git for use in DVC"
 optional = false
-python-versions = ">=3.9"
+python-versions = ">=3.8"
 files = [
-    {file = "scmrepo-3.3.2-py3-none-any.whl", hash = "sha256:2933d0b15b1b409c01e7eb2aea79b476215276d26e1eda4b4c9d3fe374047022"},
-    {file = "scmrepo-3.3.2.tar.gz", hash = "sha256:a817334bf005275e7f0f98d768ce21bb5cbfc05676a0d6081372eb927e7c737b"},
+    {file = "scmrepo-1.4.1-py3-none-any.whl", hash = "sha256:025844fc27d2cc4b5056d3a89bcfdce361525ccf7a88bf52c05fba8a27372465"},
+    {file = "scmrepo-1.4.1.tar.gz", hash = "sha256:a5b2c0fa35e529e036ce362edc7493f0d196af23412d85485ded7518ea7afb6b"},
 ]
 
 [package.dependencies]
-aiohttp-retry = ">=2.5.0"
 asyncssh = ">=2.13.1,<3"
-dulwich = ">=0.22.1"
-fsspec = {version = ">=2024.2.0", extras = ["tqdm"]}
+dulwich = ">=0.21.6"
+fsspec = ">=2021.7.0"
 funcy = ">=1.14"
 gitpython = ">3"
 pathspec = ">=0.9.0"
-pygit2 = ">=1.14.0"
+pygit2 = ">=1.13.0"
 pygtrie = ">=2.3.2"
-tqdm = "*"
+shortuuid = ">=0.5.0"
 
 [package.extras]
-dev = ["mypy (==1.9.0)", "scmrepo[tests]", "types-certifi", "types-mock", "types-paramiko", "types-tqdm"]
-tests = ["aioresponses (>=0.7,<0.8)", "paramiko (>=3.4.0,<4)", "pytest (>=7,<9)", "pytest-asyncio (>=0.23.2,<1)", "pytest-cov (>=4.1.0)", "pytest-docker (>=1,<4)", "pytest-mock", "pytest-sugar", "pytest-test-utils (>=0.1.0,<0.2)"]
-
-[[package]]
-name = "semver"
-version = "3.0.2"
-description = "Python helper for Semantic Versioning (https://semver.org)"
-optional = false
-python-versions = ">=3.7"
-files = [
-    {file = "semver-3.0.2-py3-none-any.whl", hash = "sha256:b1ea4686fe70b981f85359eda33199d60c53964284e0cfb4977d243e37cf4bf4"},
-    {file = "semver-3.0.2.tar.gz", hash = "sha256:6253adb39c70f6e51afed2fa7152bcd414c411286088fb4b9effb133885ab4cc"},
-]
+dev = ["mock (==5.1.0)", "mypy (==0.971)", "paramiko (==3.3.1)", "pylint (==2.15.0)", "pytest (==7.2.0)", "pytest-asyncio (==0.18.3)", "pytest-cov (==3.0.0)", "pytest-docker (==0.12.0)", "pytest-mock (==3.8.2)", "pytest-sugar (==0.9.5)", "pytest-test-utils (==0.0.8)", "types-certifi (==2021.10.8.3)", "types-mock (==5.1.0.2)", "types-paramiko (==3.3.0.0)"]
+tests = ["mock (==5.1.0)", "mypy (==0.971)", "paramiko (==3.3.1)", "pylint (==2.15.0)", "pytest (==7.2.0)", "pytest-asyncio (==0.18.3)", "pytest-cov (==3.0.0)", "pytest-docker (==0.12.0)", "pytest-mock (==3.8.2)", "pytest-sugar (==0.9.5)", "pytest-test-utils (==0.0.8)", "types-certifi (==2021.10.8.3)", "types-mock (==5.1.0.2)", "types-paramiko (==3.3.0.0)"]
 
 [[package]]
 name = "send2trash"
@@ -4195,17 +4153,6 @@ files = [
 docs = ["furo", "jaraco.packaging (>=9.3)", "jaraco.tidelift (>=1.4)", "pygments-github-lexers (==0.0.5)", "rst.linker (>=1.9)", "sphinx (>=3.5)", "sphinx-favicon", "sphinx-inline-tabs", "sphinx-lint", "sphinx-notfound-page (>=1,<2)", "sphinx-reredirects", "sphinxcontrib-towncrier"]
 testing = ["build[virtualenv]", "filelock (>=3.4.0)", "importlib-metadata", "ini2toml[lite] (>=0.9)", "jaraco.develop (>=7.21)", "jaraco.envs (>=2.2)", "jaraco.path (>=3.2.0)", "mypy (==1.9)", "packaging (>=23.2)", "pip (>=19.1)", "pytest (>=6,!=8.1.1)", "pytest-checkdocs (>=2.4)", "pytest-cov", "pytest-enabler (>=2.2)", "pytest-home (>=0.5)", "pytest-mypy", "pytest-perf", "pytest-ruff (>=0.2.1)", "pytest-timeout", "pytest-xdist (>=3)", "tomli", "tomli-w (>=1.0.0)", "virtualenv (>=13.0.0)", "wheel"]
 testing-integration = ["build[virtualenv] (>=1.0.3)", "filelock (>=3.4.0)", "jaraco.envs (>=2.2)", "jaraco.path (>=3.2.0)", "packaging (>=23.2)", "pytest", "pytest-enabler", "pytest-xdist", "tomli", "virtualenv (>=13.0.0)", "wheel"]
-
-[[package]]
-name = "shellingham"
-version = "1.5.4"
-description = "Tool to Detect Surrounding Shell"
-optional = false
-python-versions = ">=3.7"
-files = [
-    {file = "shellingham-1.5.4-py2.py3-none-any.whl", hash = "sha256:7ecfff8f2fd72616f7481040475a65b2bf8af90a56c89140852d1120324e8686"},
-    {file = "shellingham-1.5.4.tar.gz", hash = "sha256:8dbca0739d487e5bd35ab3ca4b36e11c4078f3a234bfce294b0a0291363404de"},
-]
 
 [[package]]
 name = "shortuuid"
@@ -4444,23 +4391,6 @@ files = [
 [package.extras]
 docs = ["myst-parser", "pydata-sphinx-theme", "sphinx"]
 test = ["argcomplete (>=3.0.3)", "mypy (>=1.7.0)", "pre-commit", "pytest (>=7.0,<8.2)", "pytest-mock", "pytest-mypy-testing"]
-
-[[package]]
-name = "typer"
-version = "0.12.3"
-description = "Typer, build great CLIs. Easy to code. Based on Python type hints."
-optional = false
-python-versions = ">=3.7"
-files = [
-    {file = "typer-0.12.3-py3-none-any.whl", hash = "sha256:070d7ca53f785acbccba8e7d28b08dcd88f79f1fbda035ade0aecec71ca5c914"},
-    {file = "typer-0.12.3.tar.gz", hash = "sha256:49e73131481d804288ef62598d97a1ceef3058905aa536a1134f90891ba35482"},
-]
-
-[package.dependencies]
-click = ">=8.0.0"
-rich = ">=10.11.0"
-shellingham = ">=1.3.0"
-typing-extensions = ">=3.7.4.3"
 
 [[package]]
 name = "types-python-dateutil"
@@ -4746,4 +4676,4 @@ test = ["zope.testing"]
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.10,<3.12"
-content-hash = "991f217a522337a11746c01076a02386b52287fdd68921c42ee453e98b67f052"
+content-hash = "fc24f82b6c04f339f1662767549349ce4ed504c6d4c4eedab13af6c7c1a4726c"
